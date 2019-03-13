@@ -1,7 +1,7 @@
 # Личный проект «Дела в Порядке»
 
 * Студент: [Fedor Pestunov](https://up.htmlacademy.ru/php/8/user/772819).
-* Наставник: [Fedor Pestunov](https://up.htmlacademy.ru/php/8/user/772819).
+* Наставник: [Кирилл Сенкевич](https://htmlacademy.ru/profile/id295429).
 
 ---
 
