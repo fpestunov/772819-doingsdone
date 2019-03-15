@@ -18,6 +18,17 @@ $tasks = [
     ['title' => 'Купить корм для кота', 'date' => 'Нет', 'category' => $projects[3], 'isCompleted' => 0],
     ['title' => 'Заказать пиццу', 'date' => 'Нет', 'category' => $projects[4], 'isCompleted' => 0],
 ];
+
+function getNumberOfTasks(array $tasks, string $category): int
+{
+    $numberOfTasks = 0;
+    foreach ($tasks as $task) {
+        if ($task['category'] === $category) {
+            $numberOfTasks += 1;
+        }
+    }
+    return $numberOfTasks;
+}
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -66,7 +77,7 @@ $tasks = [
                         <?php foreach ($projects as $project): ?>
                             <li class="main-navigation__list-item">
                                 <a class="main-navigation__list-item-link" href="#"><?=$project;?></a>
-                                <span class="main-navigation__list-item-count">0</span>
+                                <span class="main-navigation__list-item-count"><?= getNumberOfTasks($tasks, $project);?></span>
                             </li>
                         <?php endforeach; ?>
                     </ul>
