@@ -1,6 +1,11 @@
 <?php
+
 require_once('functions.php');
 require_once('data.php');
+
+//echo var_dump(strtotime('now'));
+//
+//var_dump(isImportantTask('нет'));
 
 // показывать или нет выполненные задачи
 $show_complete_tasks = rand(0, 1);

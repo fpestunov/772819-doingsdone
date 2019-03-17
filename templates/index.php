@@ -25,7 +25,7 @@
     <!--показывать следующий тег <tr/>, если переменная $show_complete_tasks равна единице-->
     <?php foreach ($tasks as $task): ?>
         <?php if ($show_complete_tasks === 1 || ($show_complete_tasks === 0 && $task['isCompleted'] === 0)): ?>
-            <tr class="tasks__item task <?= ($task['isCompleted'] === 1) ? 'task--completed': ''; ?>">
+            <tr class="tasks__item task <?= ($task['isCompleted'] === 1) ? 'task--completed': ''; ?> <?= isImportantTask($task['date']) ? 'task--important': ''; ?>">
                 <td class="task__select">
                     <label class="checkbox task__checkbox">
                         <input class="checkbox__input visually-hidden" type="checkbox" checked>

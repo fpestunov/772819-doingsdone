@@ -26,3 +26,24 @@ function getNumberOfTasks(array $tasks, string $category): int
     }
     return $numberOfTasks;
 }
+
+function isImportantTask(string $date): bool
+{
+    $timestamp = strtotime($date);
+
+    if ($timestamp === false) {
+        return false;
+    }
+
+    $oneDaySeconds = 24 * 60 * 60;
+    $nowTimestamp = strtotime('now');
+
+    $difference = $timestamp + $oneDaySeconds - $nowTimestamp;
+    $isMoreThanOneDay = $difference > $oneDaySeconds;
+
+    if ($isMoreThanOneDay) {
+        return false;
+    } else {
+        return true;
+    }
+}
