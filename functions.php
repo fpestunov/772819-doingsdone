@@ -41,9 +41,5 @@ function isImportantTask(string $date): bool
     $difference = $timestamp + $oneDaySeconds - $nowTimestamp;
     $isMoreThanOneDay = $difference > $oneDaySeconds;
 
-    if ($isMoreThanOneDay) {
-        return false;
-    } else {
-        return true;
-    }
+    return !$isMoreThanOneDay;
 }
