@@ -1,6 +1,10 @@
-CREATE DATABASE doingsdone
+DROP DATABASE IF EXISTS `doingsdone`;
+
+CREATE DATABASE `doingsdone`
     DEFAULT CHARACTER SET utf8
     DEFAULT COLLATE utf8_general_ci;
+
+USE `doingsdone`;
 
 CREATE TABLE `projects` (
     `id` INT(11) NOT NULL AUTO_INCREMENT,
