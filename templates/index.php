@@ -24,15 +24,15 @@
 <table class="tasks">
     <!--показывать следующий тег <tr/>, если переменная $show_complete_tasks равна единице-->
     <?php foreach ($tasks as $task): ?>
-        <?php if ($show_complete_tasks === 1 || ($show_complete_tasks === 0 && $task['isCompleted'] === 0)): ?>
-            <tr class="tasks__item task <?= ($task['isCompleted'] === 1) ? 'task--completed': ''; ?> <?= isImportantTask($task['date']) ? 'task--important': ''; ?>">
+        <?php if ($show_complete_tasks === 1 || ($show_complete_tasks === 0 && intval($task['status']) === 0)): ?>
+            <tr class="tasks__item task <?= (intval($task['status']) === 1) ? 'task--completed': ''; ?> <?= isImportantTask($task['deadline_at']) ? 'task--important': ''; ?>">
                 <td class="task__select">
                     <label class="checkbox task__checkbox">
                         <input class="checkbox__input visually-hidden" type="checkbox" checked>
-                        <span class="checkbox__text"><?= $task['title']; ?></span>
+                        <span class="checkbox__text"><?= $task['name']; ?></span>
                     </label>
                 </td>
-                <td class="task__date"><?= $task['date']; ?></td>
+                <td class="task__date"><?= $task['deadline_at']; ?></td>
 
                 <td class="task__controls">
                 </td>

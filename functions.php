@@ -20,7 +20,7 @@ function getNumberOfTasks(array $tasks, string $category): int
 {
     $numberOfTasks = 0;
     foreach ($tasks as $task) {
-        if ($task['category'] === $category) {
+        if ($task['project_id'] === $category) {
             $numberOfTasks += 1;
         }
     }
