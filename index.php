@@ -2,18 +2,30 @@
 
 require_once('functions.php');
 require_once('data.php');
-
-//echo var_dump(strtotime('now'));
-//
-//var_dump(isImportantTask('нет'));
+require_once('init.php');
 
 // показывать или нет выполненные задачи
 $show_complete_tasks = rand(0, 1);
+$projects = [];
 
-$page_content = include_template('index.php', [
-    'show_complete_tasks' => $show_complete_tasks,
-    'tasks' => $tasks,
-]);
+if (!$link) {
+    $error = mysqli_connect_error();
+    $page_content = include_template('error.php', ['error' => $error]);
+} else {
+    $sql = 'SELECT `id`, `name` FROM projects WHERE user_id=1';
+    $result = mysqli_query($link, $sql);
+
+    if ($result) {
+        $projects = mysqli_fetch_all($result, MYSQLI_ASSOC);
+        $page_content = include_template('index.php', [
+            'show_complete_tasks' => $show_complete_tasks,
+            'tasks' => $tasks,
+        ]);
+    } else {
+        $error = mysqli_error($link);
+        $page_content = include_template('error.php', ['error' => $error]);
+    }
+}
 
 $layout_content = include_template('layout.php', [
     'content' => $page_content,
