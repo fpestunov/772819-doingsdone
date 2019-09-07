@@ -8,7 +8,7 @@
             $query = http_build_query($params);
             $url = "/{$scriptname}?{$query}";
 
-            $item_active = ($project['id'] === $query_pid) ? ' main-navigation__list-item--active' : '';
+            $item_active = ($project['id'] === $project_id) ? ' main-navigation__list-item--active' : '';
         ?>
             <li class="main-navigation__list-item<?=$item_active;?>">
                 <a class="main-navigation__list-item-link" href="<?=$url;?>"><?=htmlspecialchars($project['name']);?></a>

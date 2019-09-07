@@ -42,7 +42,7 @@
                 <?=include_template('main-navigation.php', [
                     'projects' => $projects,
                     'tasks' => $all_tasks,
-                    'query_pid' => $query_pid
+                    'project_id' => $project_id
                     ]);
                 ?>
                 <a class="button button--transparent button--plus content__side-button"
